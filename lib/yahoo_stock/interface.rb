@@ -24,7 +24,7 @@ module YahooStock
     # Send request to the uri and get results
     def get
       begin
-        response = Net::HTTP.get_response(URI.parse(uri))
+        response = Net::HTTP.get_response(URI.parse(URI.encode(uri)))
       rescue => e
         raise InterfaceError, "#{e.message}\n\n#{e.backtrace}"
       end
